@@ -1,5 +1,7 @@
 package piglet.piglet2spiglet;
 
+import java.io.InputStream;
+
 import piglet.*;
 import piglet.syntaxtree.*;
 import piglet.visitor.*;
@@ -12,9 +14,12 @@ import piglet.visitor.*;
  */
 
 public class Main {
+
+	public static InputStream input = System.in;
+
 	public static void main(String[] args) {
 		try {
-			new PigletParser(System.in);
+			new PigletParser(input);
 			Node AST = PigletParser.Goal();
 			// First pass: Get the maximum TempNo
 			AST.accept(new GetMaxTempNo());

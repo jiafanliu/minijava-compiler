@@ -1,6 +1,7 @@
 package minijava.minijava2piglet;
 
 import minijava.*;
+import java.io.*;
 
 import minijava.symboltable.*;
 import minijava.syntaxtree.*;
@@ -15,9 +16,11 @@ import minijava.visitor.*;
  */
 
 public class Main {
+	public static InputStream input = System.in;
+
 	public static void main(String[] args) {
 		try {
-			new MiniJavaParser(System.in);
+			new MiniJavaParser(input);
 			Node AST = MiniJavaParser.Goal();
 			MClasses allClasses = new MClasses();
 			// First pass: Make a symbol table.
